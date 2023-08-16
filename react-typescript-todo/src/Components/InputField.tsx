@@ -4,11 +4,12 @@ import "./styles.css";
 interface Props {
   todo: string;
   setTodo: React.Dispatch<React.SetStateAction<string>>;
+  handleAddTodos: (e: React.FormEvent) => void;
 }
-const InputField: React.FC<Props> = ({ todo, setTodo }) => {
+const InputField: React.FC<Props> = ({ todo, setTodo, handleAddTodos }) => {
   return (
     <>
-      <form className="input_Form">
+      <form className="input_Form" onSubmit={handleAddTodos}>
         <input
           className="input_box"
           type="input"
